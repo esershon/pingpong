@@ -6,14 +6,11 @@ $(document).ready(function() {
 
   //business logic
   $("form#pingpong").submit(function(event) {
-    //get the UserNumber
     var UserNumber = parseInt($("input#number").val());
-    //get the UserArray
     var UserArray = [];
     for (var i=1; i<=UserNumber; i+=1){
       UserArray.push(i)
     }
-    //create PingPong Array
     PingPong = UserArray.map(function(number){
       if (number%15===0){
         return "pingpong";
@@ -26,34 +23,12 @@ $(document).ready(function() {
       }
     });
 
-    // Alterative logic
-    // for (var i = 1; i<UserArray.length; i++) {
-    //   if (i%15===0){
-    //     UserArray.splice(i-1,1,'pingpong');
-    //   } else if (i%3===0){
-    //     UserArray.splice(i-1,1,'ping');
-    //     console.log(UserArray);
-    //   } else if (i%5===0){
-    //     UserArray.splice(i-1,1,"pong");
-    //   }
-    // }
-
-    //user interface
+    //interface logic
     $("#gameList").text(" ");
     for (var i=0; i<UserArray.length; i+=1) {
       var ball = ("<li>" + PingPong[i])
       $("#gameList").append(ball)
     }
-
     event.preventDefault();
-
   });
-
 });
-
-
-//then the userinterface
-
-//when they press the button
-//clear the list
-//for loop of the array where it puts it in the html as a list somehow
