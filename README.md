@@ -33,7 +33,7 @@ It can replace numbers divisble by 15 with the word "pingpong"
 
 ## Setup/Installation Requirements
 
-* go to http://www.esershon.github.io/pingpong.html in a web browser
+* go to http://esershon.github.io/pingpong.html in a web browser
 
 ## Support and contact details
 
