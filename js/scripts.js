@@ -1,30 +1,53 @@
 
-//the user's number is UserNumber
-var UserArray;
-for (var i=1; i<=UserNumber; i+=1){
- UserArray.push(i)
-}
-console.log(UserArray);
+$(document).ready(function() {
 
-var PingPong = UserArray.map(function(number){
-  for (var i=0; i<UserArray.length; i+=1) {
-    if (number%3===0){
-      //put in ping
+  //variables
+  var PingPong= [];
+
+  //business logic
+  $("form#pingpong").submit(function(event) {
+    //get the UserNumber
+    var UserNumber = parseInt($("input#number").val());
+    //get the UserArray
+    var UserArray = [];
+    for (var i=1; i<=UserNumber; i+=1){
+      UserArray.push(i)
     }
-    if (numer%5===0){
-      //put in pong
+    //create PingPong Array
+
+      // for (var i=0; i<UserArray.length; i+=1) {
+      //   if (number%3===0){
+      //     UserArray.splice[i,1,"ping"];
+      //   }
+      // }
+        // if (number%5===0){
+        //   UserArray.splice[i,1,"pong"];
+        // }
+
+    PingPong = UserArray.map(function(number){
+      if (number%15===0){
+        return "pingpong";
+      } else if (number%3===0){
+        return "ping";
+      } else if (number%5===0){
+        return "pong";
+      } else {
+        return number;
+      }
+    });
+
+
+    //user interface
+    for (var i=0; i<UserArray.length; i+=1) {
+      var ball = ("<li>" + PingPong[i])
+      $("#gameList").append(ball)
     }
-  };
+
+    event.preventDefault();
+
+  });
+
 });
-
-//array made from user.map(function
-//for (cycle through the array)(
-//if it's divisible by whatever, then this
-//etc
-//etc
-//)
-//)
-//what is the new array called? I dunno, but then display it plz
 
 
 //then the userinterface
