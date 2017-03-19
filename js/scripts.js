@@ -14,16 +14,6 @@ $(document).ready(function() {
       UserArray.push(i)
     }
     //create PingPong Array
-
-      // for (var i=0; i<UserArray.length; i+=1) {
-      //   if (number%3===0){
-      //     UserArray.splice[i,1,"ping"];
-      //   }
-      // }
-        // if (number%5===0){
-        //   UserArray.splice[i,1,"pong"];
-        // }
-
     PingPong = UserArray.map(function(number){
       if (number%15===0){
         return "pingpong";
@@ -36,8 +26,20 @@ $(document).ready(function() {
       }
     });
 
+    // Alterative logic
+    // for (var i = 1; i<UserArray.length; i++) {
+    //   if (i%15===0){
+    //     UserArray.splice(i-1,1,'pingpong');
+    //   } else if (i%3===0){
+    //     UserArray.splice(i-1,1,'ping');
+    //     console.log(UserArray);
+    //   } else if (i%5===0){
+    //     UserArray.splice(i-1,1,"pong");
+    //   }
+    // }
 
     //user interface
+    $("#gameList").text(" ");
     for (var i=0; i<UserArray.length; i+=1) {
       var ball = ("<li>" + PingPong[i])
       $("#gameList").append(ball)
